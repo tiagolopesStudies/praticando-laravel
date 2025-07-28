@@ -9,7 +9,7 @@ Route::get('/', function () {
         ->with('name', 'Tiago')
         ->with('age', 23)
         ->with('details', '<b>Learning</b> <a href="https://www.laravel.com">Laravel</a> Framework')
-        ->with('hobbies', ['Play games', 'Read books', 'Watch movies']);
+        ->with('hobbies', ['Play games', 'Read books', 'Watch movies', 'Walking']);
 })->name('home');
 
 Route::view('/about', 'about');

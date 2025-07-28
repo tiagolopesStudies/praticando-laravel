@@ -38,7 +38,19 @@ multiple lines
 @endguest
 
 @forelse($hobbies as $hobby)
-    <span>{{ $hobby }}</span>
+    <p @style([
+        'color: green;' => $loop->odd,
+        'color: blue;' => $loop->even
+    ])>
+        <span>{{ $loop->iteration }} - </span>
+        <span>{{ $hobby }}</span>
+    </p>
 @empty
     <p>There is no items</p>
 @endforelse
+
+@include('shared.footer', ['text' => 'A message to footer']) {{-- Include another view --}}
+@includeIf('shared.does-note-exists', ['text' => 'A message to footer']) {{-- Include another view if exists --}}
+@includeWhen(false, 'shared.footer', ['text' => 'A message to footer']) {{-- Include another view by a condition --}}
+
+@each('hobby.view', $hobbies, 'hobby', 'hobby.empty')
