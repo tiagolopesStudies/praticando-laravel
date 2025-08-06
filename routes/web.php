@@ -5,12 +5,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
-    return view('home.index')
+    return view('home.index');
+})->name('home');
+
+Route::get('/learning-blade', function () {
+    return view('learning-blade')
         ->with('name', 'Tiago')
         ->with('age', 23)
         ->with('details', '<b>Learning</b> <a href="https://www.laravel.com">Laravel</a> Framework')
         ->with('hobbies', ['Play games', 'Read books', 'Watch movies', 'Walking']);
-})->name('home');
+})->name('learning-blade');
 
 Route::view('/about', 'about');
 
