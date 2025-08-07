@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('home.index');
 })->name('home');
 
+Route::get('/layout', function () {
+    return view('layout-example');
+})->name('layout');
+
 Route::get('/learning-blade', function () {
     return view('learning-blade')
         ->with('name', 'Tiago')
