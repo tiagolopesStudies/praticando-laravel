@@ -1,9 +1,7 @@
-@extends('layouts.base')
+<x-base-layout :$title>
+    <x-layouts.header />
 
-@section('child')
-    @include('layouts.partials.header')
-
-    @yield('content')
+    {{ $slot }}
 
     <footer></footer>
-@endsection
+</x-base-layout>

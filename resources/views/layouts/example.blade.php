@@ -9,6 +9,18 @@
     <title>@yield('title', 'Home') | {{ config('app.name') }}</title>
 </head>
 <body>
+    @hasSection('header')
+        <h1>This page has a header</h1>
+        @yield('header')
+    @endif
+
     @yield('content')
+
+    <footer>
+        @section('linksFooter')
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+        @show
+    </footer>
 </body>
 </html>

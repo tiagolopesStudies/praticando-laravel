@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-        <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title }} | {{ config('app.name', 'Laravel') }}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
     </head>
     <body @isset($cssClass) class="{{ $cssClass }}" @endisset>
 
-        @yield('child')
+        {{ $slot }}
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.js"
