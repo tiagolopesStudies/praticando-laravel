@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\CarImage;
+use App\Models\State;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<CarImage>
+ * @extends Factory<State>
  */
-class CarImageFactory extends Factory
+class StateFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,7 @@ class CarImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'image_path' => 'cars/' . fake()->word() . '.jpg',
-            'position' => fake()->numberBetween(1, 20),
+            'name' => fake()->country(),
         ];
     }
 }
