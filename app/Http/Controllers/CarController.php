@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -65,6 +66,9 @@ class CarController extends Controller
 
     public function search(): View
     {
-        return view('cars.search');
+        $cars = Car::query()->get();
+        $carsCount = $cars->count();
+
+        return view('cars.search', compact('cars', 'carsCount'));
     }
 }

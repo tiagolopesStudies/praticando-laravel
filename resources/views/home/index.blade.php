@@ -1,3 +1,5 @@
+@props(['cars'])
+
 <x-app-layout title="Home">
     <section class="hero-slider">
         <!-- Carousel wrapper -->
@@ -443,9 +445,9 @@
             <div class="container">
                 <h2>Latest Added Cars</h2>
                 <div class="car-items-listing">
-                    @for($i = 0; $i < 15; $i++)
-                        <x-car-item />
-                    @endfor
+                    @foreach($cars as $car)
+                        <x-car-item :car="$car" />
+                    @endforeach
                 </div>
             </div>
         </section>

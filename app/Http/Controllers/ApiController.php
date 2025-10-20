@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -9,9 +10,11 @@ class ApiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): string
+    public function index(): JsonResponse
     {
-        return 'This is a index page from Api Controller';
+        return response()->json([
+            'message' => 'This is an index page from Api Controller'
+        ], 201);
     }
 
     /**
