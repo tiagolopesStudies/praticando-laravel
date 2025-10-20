@@ -40,7 +40,3 @@ Route::resource('/resource', Controllers\ResourceController::class)
 
 Route::apiResource('/api', Controllers\ApiController::class)
     ->except('destroy');
-
-Route::fallback(function () {
-    return View::make('not-found');
-});

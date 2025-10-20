@@ -7,9 +7,13 @@ use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    public function index(): View
+    public function __invoke(): View
     {
-        $cars = Car::query()->paginate(5);
+        $cars = Car::query()
+            ->with(['city', 'maker', 'model', 'carType', 'fuelType'])
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get();
 
         return view('home.index', compact('cars'));
     }
